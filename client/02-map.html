@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Map</title>
+</head>
+<body>
+    <h2>Lista productos:</h2>
+    <div id="app"></div>
+
+    <!-- Reto -->
+    <!-- Lista de tareas con:
+        - Titulo
+        - Estado(completada o no) (Sug. usar input tipo checkbox)    --->
+    <h2>Lista de tareas:</h2>
+    <div id="to-do"></div>
+
+    <script>
+        const products = [
+            { title: 'Burger', price: 121 },
+            { title: 'Pizza', price: 20 },
+        ];
+        const app = document.getElementById('app');
+        const productsList = products.map(product => {
+            return `<li> ${ product.title } - $ ${ product.price} </li>`;
+        });
+        app.innerHTML = productsList.join(' '); 
+        //.join: Une todos los elems de un array en un string y devuelve este string.
+        // Recibe como param un elem separador.
+        console.log('lista', productsList);
+        console.log('lista con join', productsList.join(' '));
+
+        /**
+         * Reto lista tareas
+         */
+        const tasks = [
+            { title: 'Mostrar tareas', status: true },
+            { title: 'Implementar checkbox', status: true },
+            { title: 'Completar reto', status: true },
+            { title: 'Documentar clase', status: false },
+            { title: 'Hacer commit', status: false },
+        ]
+
+        const list = document.getElementById('to-do');
+        const tasksList = tasks.map(task => {
+            let isChecked = (task.status) ? 'checked' : '';
+
+            return `<li> 
+                        <input type="checkbox" ${ isChecked } id="${ task.title }" name="${ task.title }"> 
+                        <label for="${ task.title }">  ${ task.title }
+                    </li>` ;
+        });
+        list.innerHTML = tasksList.join(' ');
+
+    </script>
+</body>
+</html>
