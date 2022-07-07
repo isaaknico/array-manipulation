@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/isaaknico/array-manipulation#readme",
   "dependencies": {
+    "date-fns": "^2.28.0",
     "http-server": "^0.12.3"
   }
 }
